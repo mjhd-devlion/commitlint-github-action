@@ -68,7 +68,7 @@ function getOptsFromConfig(config) {
         ? config.parserPreset.parserOpts
         : {},
     plugins: config.plugins != null ? config.plugins : {},
-    ignores: config.ignroes != null ? config.ignores : [],
+    ignores: config.ignores != null ? config.ignores : [],
     defaultIgnores:
       config.defaultIgnores != null ? config.defaultIgnores : true,
   }
