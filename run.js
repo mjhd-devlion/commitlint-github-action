@@ -60,13 +60,29 @@ function getHistoryCommits(from, to) {
   })
 }
 
+function getOptsFromConfig(config) {
+  console.log(config)
+  return {
+    parserOpts:
+      config.parserPreset != null && config.parserPreset.parserOpts != null
+        ? config.parserPreset.parserOpts
+        : {},
+    plugins: config.plugins != null ? config.plugins : {},
+    ignores: config.ignores != null ? config.ignores : [],
+    defaultIgnores:
+      config.defaultIgnores != null ? config.defaultIgnores : true,
+  }
+}
+
 const showLintResults = async ([from, to]) => {
   const commits = await getHistoryCommits(from, to)
   const config = existsSync(configPath)
     ? await load({}, { file: configPath })
     : {}
+  const opts = getOptsFromConfig(config)
+  console.log(opts)
   const results = await Promise.all(
-    commits.map(commit => lint(commit, config.rules)),
+    commits.map(commit => lint(commit, config.rules, opts)),
   )
   const formattedResults = format(
     { results },
