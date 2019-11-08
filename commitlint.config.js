@@ -1,5 +1,5 @@
 module.exports = {
-  parserPreset: 'conventional-changelog-conventionalcommits',
+  extends: ['@commitlint/config-conventional'],
   defaultIgnores: false,
   ignores: [
     c =>
