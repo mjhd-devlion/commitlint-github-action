@@ -1,7 +1,12 @@
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   defaultIgnores: false,
-  ignores: [],
+  ignores: [
+    c =>
+      c.match(
+        /^((Merge pull request)|(Merge (.*?) into (.*?)|(Merge branch (.*?)))(?:\r?\n)*$)/m,
+      ),
+  ],
   rules: {
     'body-leading-blank': [2, 'always'],
     'body-max-line-length': [2, 'always', 72],
