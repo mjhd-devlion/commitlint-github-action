@@ -80,6 +80,7 @@ const showLintResults = async ([from, to]) => {
     ? await load({}, { file: configPath })
     : {}
   const opts = getOptsFromConfig(config)
+  console.log(opts)
   const results = await Promise.all(
     commits.map(commit => lint(commit, config.rules, opts)),
   )
