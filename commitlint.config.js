@@ -1,7 +1,19 @@
+const test = r.test.bind(r)
+
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   defaultIgnores: false,
-  ignores: [_ => false],
+  ignores: [
+    test(
+      /^((Merge pull request)|(Merge (.*?) into (.*?)|(Merge branch (.*?)))(?:\r?\n)*$)/m,
+    ),
+    test(/^(R|r)evert (.*)/),
+    test(/^(fixup|squash)!/),
+    test(/^Merged (.*?)(in|into) (.*)/),
+    test(/^Merge remote-tracking branch (.*)/),
+    test(/^Automatic merge(.*)/),
+    test(/^Auto-merged (.*?) into (.*)/),
+  ],
   rules: {
     'body-leading-blank': [2, 'always'],
     'body-max-line-length': [2, 'always', 72],
