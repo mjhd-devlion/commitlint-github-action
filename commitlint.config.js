@@ -1,17 +1,7 @@
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   defaultIgnores: false,
-  ignores: [
-    c =>
-      c.match(
-        /^((Merge pull request)|(Merge (.*?) into (.*?)|(Merge branch (.*?)))(?:\r?\n)*$)/m,
-      ),
-    c => c.match(/^(R|r)evert (.*)/m),
-    c => c.match(/^Merged (.*?)(in|into) (.*)/),
-    c => c.match(/^Merge remote-tracking branch (.*)/),
-    c => c.match(/^Automatic merge(.*)/),
-    c => c.match(/^Auto-merged (.*?) into (.*)/),
-  ],
+  ignores: [],
   rules: {
     'body-leading-blank': [2, 'always'],
     'body-max-line-length': [2, 'always', 72],
