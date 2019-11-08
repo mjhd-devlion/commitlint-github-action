@@ -6,8 +6,8 @@ module.exports = {
       c.match(
         /^((Merge pull request)|(Merge (.*?) into (.*?)|(Merge branch (.*?)))(?:\r?\n)*$)/m,
       ),
-    c => c === 'test',
-    c => c === 'wip',
+    c => c.match('^test(.*)'),
+    c => c.match('^wip(.*)'),
     c => c.match(/^(R|r)evert (.*)/),
     c => c.match(/^(fixup|squash)!/),
     c => c.match(/^Merged (.*?)(in|into) (.*)/),
