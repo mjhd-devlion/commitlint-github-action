@@ -61,6 +61,7 @@ function getHistoryCommits(from, to) {
 }
 
 function getOptsFromConfig(config) {
+  console.log(config)
   return {
     parserOpts:
       config.parserPreset != null && config.parserPreset.parserOpts != null
