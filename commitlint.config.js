@@ -2,6 +2,7 @@ module.exports = {
   extends: ['@commitlint/config-conventional'],
   defaultIgnores: false,
   ignores: [
+    c => c.match(/^wip$/),
     c => c.match(/^(R|r)evert (.*)/),
     c => c.match(/^Merged (.*?)(in|into) (.*)/),
     c => c.match(/^Merge remote-tracking branch (.*)/),
