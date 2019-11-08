@@ -1,7 +1,7 @@
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   defaultIgnores: false,
-  ignores: [_ => true],
+  ignores: [_ => false],
   rules: {
     'body-leading-blank': [2, 'always'],
     'body-max-line-length': [2, 'always', 72],
