@@ -10,7 +10,7 @@ inputs:
     default: true
 runs:
   using: 'docker'
-  image: 'docker://mjhddevlion/commitlint-github-action:1.2.2-pass-opts'
+  image: 'docker://mjhddevlion/commitlint-github-action:1.2.2-pass-opts-hotfix1'
 branding:
   icon: 'check-square'
   color: 'blue'
